@@ -1,0 +1,173 @@
+/* ===== Base ===== */
+body {
+  font-family: 'Arial', sans-serif;
+  background: #f7f7f7;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 15px;
+  background: #007ACC;
+  color: white;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  flex: 1 1 100%;
+  text-align: center;
+  margin: 5px 0;
+  font-size: 1.4em;
+}
+
+header img.serie-b-logo {
+  height: 50px;
+  margin-right: 10px;
+}
+
+header .controls {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+button {
+  background: #ff9800;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #e68900;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+/* ===== Stats ===== */
+#stats, #duplicates {
+  text-align: center;
+  margin: 10px 0;
+}
+
+#progress {
+  background: #ddd;
+  height: 15px;
+  border-radius: 10px;
+  margin: 10px;
+  overflow: hidden;
+}
+
+#bar {
+  background: #4caf50;
+  height: 100%;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+/* ===== Titoli squadre ===== */
+.team-title {
+  margin: 20px 0 10px;
+  padding: 8px;
+  color: white;
+  font-weight: bold;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+/* ===== Griglia ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+/* ===== Carte ===== */
+.card {
+  background: white;
+  border: 2px solid #bbb;
+  padding: 12px 0;
+  text-align: center;
+  border-radius: 10px;
+  font-weight: bold;
+  user-select: none;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card.found {
+  background: #333;
+  color: white;
+}
+
+.card.duplicate {
+  border-color: red;
+}
+
+.card.highlight {
+  outline: 3px solid orange;
+}
+
+/* ===== Responsive per telefono ===== */
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  header h1 {
+    font-size: 1.1em;
+  }
+
+  button {
+    font-size: 0.9em;
+    padding: 5px 8px;
+  }
+
+  input[type="number"] {
+    font-size: 0.9em;
+    padding: 5px;
+  }
+}
+
+/* ===== Stampa / PDF ===== */
+@media print {
+  button, input, #stats, #duplicates {
+    display: none;
+  }
+
+  body {
+    background: white;
+  }
+
+  .card {
+    border: 1px solid black;
+    color: black;
+  }
+
+  .card.found {
+    background: #ccc;
+    color: black;
+  }
+
+  .team-title {
+    color: black;
+  }
+}
